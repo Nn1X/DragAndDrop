@@ -1,0 +1,43 @@
+﻿@page "/"
+@inject IJSRuntime JS;
+
+<PageTitle>Cards</PageTitle>
+
+
+
+	<div class="app">
+		<div class="boards">
+			<div class="boards__item">
+					<span contenteditable="true" class="title">Введите название</span> 
+
+				<div class="list">
+					<div class="list__item" draggable="true">стартовая карточка</div>
+				</div>	
+
+				<div class="form">
+					<textarea class="textarea" placeholder="Введите название для карточки"></textarea>
+					<div class="buttons">
+						<button class="add__item-btn">Добавить</button>
+						<button class="cancel__item-btn">Отмена</button>
+					</div>
+				</div>
+
+				<div class="add__btn"><span> + </span> Добавить карточку </div>
+			</div>
+		</div>
+
+
+		<div class="button">Добавить доску</div>
+
+		<h4 style="width: 100%; margin: auto; text-align: center;"><a href="/syncfusion">Реализация с помощью Syncfusion Kanban</a></h4>
+	</div>
+
+	
+
+
+@code{
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		await JS.InvokeVoidAsync("jsInit");
+	}
+}
